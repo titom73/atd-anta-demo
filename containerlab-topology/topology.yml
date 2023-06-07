@@ -1,58 +1,95 @@
-name: atd
+name: atd-anta
+
+mgmt:
+  network: atd-anta-mgmt
+  ipv4-subnet: 192.168.0.0/24
+  ipv6-subnet: 2001:192:168:0::/80
 
 topology:
   kinds:
     ceos:
-      image: arista/ceos:4.28.3M
+      image: arista/ceos:${EOS_VERSION:=4.28.3M}
   nodes:
     spine1:
       kind: ceos
-      mgmt_ipv4: 192.168.0.10
+      mgmt-ipv4: 192.168.0.10
       startup-config: ../atd-inventory/intended/configs/spine1.cfg
       env:
         TMODE: lacp
+      group: spine
+      labels:
+        graph-level: 1
+        graph-icon: switch
     spine2:
       kind: ceos
-      mgmt_ipv4: 192.168.0.11
+      mgmt-ipv4: 192.168.0.11
       startup-config: ../atd-inventory/intended/configs/spine2.cfg
       env:
         TMODE: lacp
+      group: spine
+      labels:
+        graph-level: 1
+        graph-icon: switch
     leaf1:
       kind: ceos
-      mgmt_ipv4: 192.168.0.12
+      mgmt-ipv4: 192.168.0.12
       startup-config: ../atd-inventory/intended/configs/leaf1.cfg
       env:
         TMODE: lacp
+      group: leaf
+      labels:
+        graph-level: 2
+        graph-icon: switch
     leaf2:
       kind: ceos
-      mgmt_ipv4: 192.168.0.13
+      mgmt-ipv4: 192.168.0.13
       startup-config: ../atd-inventory/intended/configs/leaf2.cfg
       env:
         TMODE: lacp
+      group: leaf
+      labels:
+        graph-level: 2
+        graph-icon: switch
     leaf3:
       kind: ceos
-      mgmt_ipv4: 192.168.0.14
+      mgmt-ipv4: 192.168.0.14
       startup-config: ../atd-inventory/intended/configs/leaf3.cfg
       env:
         TMODE: lacp
+      group: leaf
+      labels:
+        graph-level: 2
+        graph-icon: switch
     leaf4:
       kind: ceos
-      mgmt_ipv4: 192.168.0.15
+      mgmt-ipv4: 192.168.0.15
       startup-config: ../atd-inventory/intended/configs/leaf4.cfg
       env:
         TMODE: lacp
+      group: leaf
+      labels:
+        graph-level: 2
+        graph-icon: switch
     host1:
       kind: ceos
-      mgmt_ipv4: 192.168.0.16
+      mgmt-ipv4: 192.168.0.16
       startup-config: configs/host1.cfg
       env:
         TMODE: lacp
+      group: server
+      labels:
+        graph-level: 3
+        graph-icon: server
     host2:
       kind: ceos
-      mgmt_ipv4: 192.168.0.17
+      mgmt-ipv4: 192.168.0.17
       startup-config: configs/host2.cfg
       env:
         TMODE: lacp
+      group: server
+      labels:
+        graph-level: 3
+        graph-icon: server
 
     # --------------------------------------- #
     # Graphite Node                           #
@@ -65,15 +102,19 @@ topology:
       image: netreplica/graphite
       env:
         GRAPHITE_DEFAULT_TYPE: clab
-        GRAPHITE_DEFAULT_TOPO: atd
+        GRAPHITE_DEFAULT_TOPO: atd-anta
+        HOST_CONNECTION: ${SSH_CONNECTION}
       binds:
-        - .:/htdocs/clab    # New path required for latest version
+        # - .:/htdocs/clab    # New path required for latest version
+        - __clabDir__/topology-data.json:/htdocs/default/default.json:ro
+        - __clabDir__/ansible-inventory.yml:/htdocs/lab/default/ansible-inventory.yml:ro
       ports:
         - 80:80
       exec:
         - sh -c 'graphite_motd.sh 80'
       labels:
         graph-hide: yes
+      group: server
 
   links:
     # Spines
@@ -102,8 +143,3 @@ topology:
     - endpoints: ["leaf3:eth5", "host2:eth3"]
     - endpoints: ["leaf4:eth4", "host2:eth2"]
     - endpoints: ["leaf4:eth5", "host2:eth4"]
-
-mgmt:
-  network: atd_mgt
-  ipv4_subnet: 192.168.0.0/24
-  ipv6_subnet: 2001:192:168:0::/80

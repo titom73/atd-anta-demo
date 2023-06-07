@@ -1,0 +1,24 @@
+---
+anta.tests.configuration:
+  - VerifyZeroTouch: # Verifies ZeroTouch is disabled.
+  - VerifyRunningConfigDiffs:
+
+anta.tests.software:
+  - VerifyEOSVersion:
+      versions:
+        - '4.28.3M-28837868.4283M (engineering build)'
+
+anta.tests.interfaces:
+  - VerifyInterfaceUtilization:
+  - VerifyLoopbackCount:
+      number: 3
+
+anta.tests.system:
+  - VerifyNTP:
+
+anta.tests.mlag:
+  - VerifyMlagStatus:
+  - VerifyMlagInterfaces:
+  - VerifyMlagConfigSanity:
+
+

@@ -1,5 +1,5 @@
 collections:
-  - arista.avd==3.3.3
+  - arista.avd
   - arista.eos
   - ansible.netcommon
   - ansible.posix

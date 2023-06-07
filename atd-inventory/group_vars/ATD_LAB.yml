@@ -50,6 +50,24 @@ name_servers:
   - 192.168.2.1
   - 8.8.8.8
 
+timezone: Europe/Paris
+ntp:
+  local_interface:
+    name: Management0
+    vrf: default
+  servers:
+    - name: fr.pool.ntp.org
+      preferred: True
+      local_interface: Management0
+      vrf: default
+      burst: True
+      iburst: True
+    - name: uk.pool.ntp.org
+      local_interface: Management0
+      vrf: default
+      burst: True
+      iburst: True
+
 # dns domain
 dns_domain: atd.lab
 

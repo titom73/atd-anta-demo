@@ -5,6 +5,8 @@
   - [Management Interfaces](#management-interfaces)
   - [DNS Domain](#dns-domain)
   - [Name Servers](#name-servers)
+  - [Clock Settings](#clock-settings)
+  - [NTP](#ntp)
   - [Management API HTTP](#management-api-http)
 - [Authentication](#authentication)
   - [Local Users](#local-users)
@@ -55,7 +57,7 @@
 
 | Management Interface | description | Type | VRF | IPv6 Address | IPv6 Gateway |
 | -------------------- | ----------- | ---- | --- | ------------ | ------------ |
-| Management0 | oob_management | oob | default | -  | - |
+| Management0 | oob_management | oob | default | - | - |
 
 ### Management Interfaces Device Configuration
 
@@ -94,6 +96,45 @@ ip name-server vrf default 8.8.8.8
 ip name-server vrf default 192.168.2.1
 ```
 
+## Clock Settings
+
+### Clock Timezone Settings
+
+Clock Timezone is set to **Europe/Paris**.
+
+### Clock Configuration
+
+```eos
+!
+clock timezone Europe/Paris
+```
+
+## NTP
+
+### NTP Summary
+
+#### NTP Local Interface
+
+| Interface | VRF |
+| --------- | --- |
+| Management0 | default |
+
+#### NTP Servers
+
+| Server | VRF | Preferred | Burst | iBurst | Version | Min Poll | Max Poll | Local-interface | Key |
+| ------ | --- | --------- | ----- | ------ | ------- | -------- | -------- | --------------- | --- |
+| fr.pool.ntp.org | default | True | True | True | - | - | - | Management0 | - |
+| uk.pool.ntp.org | default | - | True | True | - | - | - | Management0 | - |
+
+### NTP Device Configuration
+
+```eos
+!
+ntp local-interface Management0
+ntp server fr.pool.ntp.org prefer burst iburst local-interface Management0
+ntp server uk.pool.ntp.org burst iburst local-interface Management0
+```
+
 ## Management API HTTP
 
 ### Management API HTTP Summary
@@ -126,12 +167,12 @@ management api http-commands
 
 ### Local Users Summary
 
-| User | Privilege | Role |
-| ---- | --------- | ---- |
-| admin | 15 | network-admin |
-| ansible | 15 | network-admin |
-| arista | 15 | network-admin |
-| tom | 15 | network-admin |
+| User | Privilege | Role | Disabled |
+| ---- | --------- | ---- | -------- |
+| admin | 15 | network-admin | False |
+| ansible | 15 | network-admin | False |
+| arista | 15 | network-admin | False |
+| tom | 15 | network-admin | False |
 
 ### Local Users Device Configuration
 
@@ -224,10 +265,10 @@ vlan internal order ascending range 1006 1199
 
 | Interface | Description | Type | Channel Group | IP Address | VRF |  MTU | Shutdown | ACL In | ACL Out |
 | --------- | ----------- | -----| ------------- | ---------- | ----| ---- | -------- | ------ | ------- |
-| Ethernet2 | P2P_LINK_TO_LEAF1_Ethernet3 | routed | - | 172.31.255.2/31 | default | 1500 | false | - | - |
-| Ethernet3 | P2P_LINK_TO_LEAF2_Ethernet3 | routed | - | 172.31.255.6/31 | default | 1500 | false | - | - |
-| Ethernet4 | P2P_LINK_TO_LEAF3_Ethernet3 | routed | - | 172.31.255.10/31 | default | 1500 | false | - | - |
-| Ethernet5 | P2P_LINK_TO_LEAF4_Ethernet3 | routed | - | 172.31.255.14/31 | default | 1500 | false | - | - |
+| Ethernet2 | P2P_LINK_TO_LEAF1_Ethernet3 | routed | - | 172.31.255.2/31 | default | 1500 | False | - | - |
+| Ethernet3 | P2P_LINK_TO_LEAF2_Ethernet3 | routed | - | 172.31.255.6/31 | default | 1500 | False | - | - |
+| Ethernet4 | P2P_LINK_TO_LEAF3_Ethernet3 | routed | - | 172.31.255.10/31 | default | 1500 | False | - | - |
+| Ethernet5 | P2P_LINK_TO_LEAF4_Ethernet3 | routed | - | 172.31.255.14/31 | default | 1500 | False | - | - |
 
 ### Ethernet Interfaces Device Configuration
 
@@ -305,8 +346,7 @@ service routing protocols model multi-agent
 
 | VRF | Routing Enabled |
 | --- | --------------- |
-| default | true |
-| default | false |
+| default | True |
 
 ### IP Routing Device Configuration
 
@@ -320,7 +360,7 @@ ip routing
 
 | VRF | Routing Enabled |
 | --- | --------------- |
-| default | false |
+| default | False |
 | default | false |
 
 ## Static Routes
@@ -378,16 +418,16 @@ ip route 0.0.0.0/0 192.168.0.1
 
 ### BGP Neighbors
 
-| Neighbor | Remote AS | VRF | Shutdown | Send-community | Maximum-routes | Allowas-in | BFD | RIB Pre-Policy Retain |
-| -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- |
-| 172.31.255.3 | 65101 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - |
-| 172.31.255.7 | 65101 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - |
-| 172.31.255.11 | 65102 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - |
-| 172.31.255.15 | 65102 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - |
-| 192.0.255.3 | 65101 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - |
-| 192.0.255.4 | 65101 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - |
-| 192.0.255.5 | 65102 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - |
-| 192.0.255.6 | 65102 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - |
+| Neighbor | Remote AS | VRF | Shutdown | Send-community | Maximum-routes | Allowas-in | BFD | RIB Pre-Policy Retain | Route-Reflector Client |
+| -------- | --------- | --- | -------- | -------------- | -------------- | ---------- | --- | --------------------- | ---------------------- |
+| 172.31.255.3 | 65101 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - |
+| 172.31.255.7 | 65101 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - |
+| 172.31.255.11 | 65102 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - |
+| 172.31.255.15 | 65102 | default | - | Inherited from peer group IPv4-UNDERLAY-PEERS | Inherited from peer group IPv4-UNDERLAY-PEERS | - | - | - | - |
+| 192.0.255.3 | 65101 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - |
+| 192.0.255.4 | 65101 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - |
+| 192.0.255.5 | 65102 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - |
+| 192.0.255.6 | 65102 | default | - | Inherited from peer group EVPN-OVERLAY-PEERS | Inherited from peer group EVPN-OVERLAY-PEERS | - | Inherited from peer group EVPN-OVERLAY-PEERS | - | - |
 
 ### Router BGP EVPN Address Family
 
@@ -500,9 +540,9 @@ ip prefix-list PL-LOOPBACKS-EVPN-OVERLAY
 
 #### RM-CONN-2-BGP
 
-| Sequence | Type | Match and/or Set |
-| -------- | ---- | ---------------- |
-| 10 | permit | match ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY |
+| Sequence | Type | Match | Set | Sub-Route-Map | Continue |
+| -------- | ---- | ----- | --- | ------------- | -------- |
+| 10 | permit | ip address prefix-list PL-LOOPBACKS-EVPN-OVERLAY | - | - | - |
 
 ### Route-maps Device Configuration
 
@@ -520,7 +560,6 @@ route-map RM-CONN-2-BGP permit 10
 
 | VRF Name | IP Routing |
 | -------- | ---------- |
-| default | disabled |
 
 ## VRF Instances Device Configuration
 

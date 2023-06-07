@@ -1,0 +1,3 @@
+ansible
+eos-downloader
+git+https://github.com/arista-netdevops-community/anta.git
