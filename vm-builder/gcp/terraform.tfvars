@@ -1,0 +1,10 @@
+gcp_auth_file        = "~/auth-cloud/gcloud-inetsix-arista.json"
+gcp_project_id      = "inetsix"
+gcp_region          = "europe-west9"
+gcp_az              = "europe-west9-a"
+
+vm_name             = "containerlab"
+instance_type       = "e2-standard-8"
+network_subnet_cidr = "10.1.0.0/24"
+public_key_path     = "~/.ssh/id-tom-aws.pub"
+private_key_path    = "~/.ssh/id-tom-aws"

@@ -1,0 +1,23 @@
+platform_settings:
+  - platforms: ['VEOS', 'VEOS-LAB', 'vEOS', 'vEOS-lab']
+    reload_delay:
+      mlag: 300
+      non_mlag: 330
+    feature_support:
+      queue_monitor_length_notify: false
+      interface_storm_control: false
+    raw_eos_cli: |
+      interface Management0
+         no lldp transmit
+
+  - platforms: ['CEOS', 'cEOS', 'ceos', 'cEOSLab']
+    management_interface: Management0
+    reload_delay:
+      mlag: 300
+      non_mlag: 330
+    feature_support:
+      queue_monitor_length_notify: false
+      interface_storm_control: false
+    raw_eos_cli: |
+      interface Management0
+         no lldp transmit

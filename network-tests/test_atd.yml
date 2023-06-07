@@ -1,0 +1,16 @@
+---
+anta.tests.software:
+  - verify_eos_version:
+      versions:
+        - '4.28.3M-28837868.4283M (engineering build)'
+  - verify_terminattr_version:
+      versions:
+        - v1.22.1
+anta.tests.system:
+  - verify_ntp:
+  - verify_syslog:
+
+anta.tests.mlag:
+  - verify_mlag_status:
+  - verify_mlag_interfaces:
+  - verify_mlag_config_sanity:

@@ -1,0 +1,42 @@
+---
+- name: Manage Arista EOS EVPN/VXLAN Configuration
+  hosts: ATD_LAB
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+    - arista.cvp
+  tasks:
+    - name: generate intended variables
+      import_role:
+        name: arista.avd.eos_designs
+
+    - name: generate device intended config and documentation
+      tags: [build, generate]
+      import_role:
+        name: eos_cli_config_gen
+
+- name: Configuration deployment with CVP
+  hosts: ATD_LAB
+  connection: local
+  gather_facts: false
+  collections:
+    - arista.avd
+  tasks:
+    - name: provision EOS devices with AVD configuration
+      tags: [never, deploy_eapi]
+      import_role:
+        name: arista.avd.eos_config_deploy_eapi
+
+- name: Deploy configuration to CLoudvision
+  hosts: [cv_servers]
+  tasks:
+    - name: "provision Cloudvision with devices configuration"
+      tags: [deploy_cvp, never]
+      import_role:
+        name: arista.avd.eos_config_deploy_cvp
+      vars:
+        container_root: "ATD_LAB"
+        configlets_prefix: 'AVD_ATD'
+        execute_tasks: false
+        state: present

@@ -1,0 +1,85 @@
+topology_tags:
+  - device: leaf1
+    device_tags:
+      - name: topology_datacenter
+        value: datacenter
+      - name: topology_hint_datacenter
+        value: ATD
+      - name: topology_pod
+        value: POD01
+      - name: topology_rack
+        value: RACK01
+      - name: topology_type
+        value: leaf
+  - device: leaf2
+    device_tags:
+      - name: topology_datacenter
+        value: datacenter
+      - name: topology_hint_datacenter
+        value: ATD
+      - name: topology_pod
+        value: POD01
+      - name: topology_rack
+        value: RACK01
+      - name: topology_type
+        value: leaf
+
+  - device: leaf3
+    device_tags:
+      - name: topology_datacenter
+        value: datacenter
+      - name: topology_hint_datacenter
+        value: ATD
+      - name: topology_pod
+        value: POD01
+      - name: topology_rack
+        value: RACK02
+      - name: topology_type
+        value: leaf
+  - device: leaf4
+    device_tags:
+      - name: topology_datacenter
+        value: datacenter
+      - name: topology_hint_datacenter
+        value: ATD
+      - name: topology_pod
+        value: POD01
+      - name: topology_rack
+        value: RACK02
+      - name: topology_type
+        value: leaf
+
+  - device: spine1
+    device_tags:
+      - name: topology_datacenter
+        value: datacenter
+      - name: topology_hint_datacenter
+        value: ATD
+      - name: topology_pod
+        value: POD01
+      - name: topology_type
+        value: spine
+  - device: spine2
+    device_tags:
+      - name: topology_datacenter
+        value: datacenter
+      - name: topology_hint_datacenter
+        value: ATD
+      - name: topology_pod
+        value: POD01
+      - name: topology_type
+        value: spine
+
+
+  - device: leaf4
+    device_tags:
+      - name: topology_datacenter
+        value: datacenter
+      - name: topology_hint_datacenter
+        value: ATD
+      - name: topology_pod
+        value: POD01
+      - name: topology_rack
+        value: RACK02
+      - name: topology_type
+        value: endpoint

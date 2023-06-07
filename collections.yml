@@ -1,0 +1,6 @@
+collections:
+  - arista.avd==3.3.3
+  - arista.eos
+  - ansible.netcommon
+  - ansible.posix
+  - community.general

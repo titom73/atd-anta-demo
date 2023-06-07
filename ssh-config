@@ -1,0 +1,59 @@
+#########################################################
+#               AVD INETSIX EAPI LAB
+#########################################################
+# Host jump-clab
+#     IdentityFile ~/.ssh/id-tom
+#     UserKnownHostsFile ~/.ssh/avd_known_hosts
+#     HostName 10.73.1.230
+#     ControlMaster   auto
+#     ControlPath     ~/.ssh/mux-%r@%h:%p
+#     ControlPersist  15m
+#     User tom
+
+Host atd-spine1
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.10
+    User ansible
+    ProxyJump container-lab
+
+Host atd-spine2
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.11
+    User ansible
+    ProxyJump container-lab
+
+Host atd-leaf1
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.12
+    User ansible
+    ProxyJump container-lab
+
+Host atd-leaf2
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.13
+    User ansible
+    ProxyJump container-lab
+
+Host atd-leaf3
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.14
+    User ansible
+    ProxyJump container-lab
+
+Host atd-leaf4
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.15
+    User ansible
+    ProxyJump container-lab
+
+Host atd-host1
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.16
+    User ansible
+    ProxyJump container-lab
+
+Host atd-host2
+    UserKnownHostsFile ~/.ssh/avd_known_hosts
+    HostName 192.168.0.17
+    User ansible
+    ProxyJump container-lab

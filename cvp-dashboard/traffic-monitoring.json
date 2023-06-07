@@ -1,0 +1,149 @@
+{
+    "dashboards": [
+        {
+            "key": "92ef9f54-0661-4272-8fad-8d1fbc28416a",
+            "createdAt": [
+                376849972,
+                1558
+            ],
+            "createdBy": "tom",
+            "metaData": {
+                "schemaVersion": "3",
+                "legacyKey": "",
+                "legacyVersion": "",
+                "fromPackage": ""
+            },
+            "name": "Traffic Monitoring",
+            "description": "",
+            "widgets": [
+                {
+                    "id": "0d1fdb86-d2b6-4ce0-ab17-2cb5260d0257",
+                    "name": "",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "dimensions": {
+                        "width": 13,
+                        "height": 14
+                    },
+                    "type": "topology-widget",
+                    "inputs": {
+                        "overlay": "inOctetsRate",
+                        "selectedCustomTags": [],
+                        "showActiveEvents": false,
+                        "showContainerTypes": false,
+                        "showLegend": true,
+                        "showManagement": false,
+                        "showVxlanTunnels": true,
+                        "tags": "Container:ATD_LAB ",
+                        "useDeviceImages": true
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "54c6564a-61aa-4a6f-92f3-e8745485f28d",
+                    "name": "",
+                    "position": {
+                        "x": 13,
+                        "y": 14
+                    },
+                    "dimensions": {
+                        "width": 11,
+                        "height": 11
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "INTERFACE_IN_UCAST_RATE"
+                        ],
+                        "metricSource": "interfaces",
+                        "selectedCustomTags": [],
+                        "tags": "device:9041CEE44325D2AE4A41237837028092 | device:18815BEC4AE58BE398ED166FCC8CC110 "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "363a2987-7ab9-41a2-8aaa-dd294edcc826",
+                    "name": "",
+                    "position": {
+                        "x": 13,
+                        "y": 7
+                    },
+                    "dimensions": {
+                        "width": 11,
+                        "height": 7
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "BGP_V4_BGP_LEARNED_ROUTES"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "f2ab683b-1cf5-4575-bcf5-051f13fc2c73",
+                    "name": "",
+                    "position": {
+                        "x": 13,
+                        "y": 0
+                    },
+                    "dimensions": {
+                        "width": 11,
+                        "height": 7
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "MAC_TABLE_SIZE"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "41a26d6b-cede-449e-8bdd-785589d48311",
+                    "name": "",
+                    "position": {
+                        "x": 0,
+                        "y": 14
+                    },
+                    "dimensions": {
+                        "width": 13,
+                        "height": 11
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "INTERFACE_OUT_UCAST_RATE"
+                        ],
+                        "metricSource": "interfaces",
+                        "selectedCustomTags": [],
+                        "tags": "Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                }
+            ],
+            "lastUpdated": 1673267292938,
+            "lastUpdatedBy": "tom"
+        }
+    ]
+}

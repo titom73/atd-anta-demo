@@ -1,0 +1,11 @@
+# Create and assign device and interface tags to multiple devices and interfaces
+- name: Build CVP TAG for topology
+  hosts: cv_servers
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: "create tags"
+      arista.cvp.cv_tag_v3:
+        tags: "{{ topology_tags }}"
+        mode: assign
+        auto_create: true

@@ -1,0 +1,15 @@
+---
+anta_inventory:
+  hosts:
+    - host: 192.168.0.10
+      tags: ['spine']
+    - host: 192.168.0.11
+      tags: ['spine']
+    - host: 192.168.0.12
+      tags: ['leaf']
+    - host: 192.168.0.13
+      tags: ['leaf']
+    - host: 192.168.0.14
+      tags: ['leaf']
+    - host: 192.168.0.115
+      tags: ['leaf']

@@ -1,0 +1,238 @@
+{
+    "dashboards": [
+        {
+            "key": "c0b21023-b950-4eeb-a181-ff2a6f16578d",
+            "createdAt": [
+                35045710,
+                1558
+            ],
+            "createdBy": "tom",
+            "metaData": {
+                "schemaVersion": "3",
+                "legacyKey": "",
+                "legacyVersion": "",
+                "fromPackage": ""
+            },
+            "name": "Fabric Overview",
+            "description": "",
+            "widgets": [
+                {
+                    "id": "922bc59a-803d-43e7-b4c7-45235f76036a",
+                    "name": "BGP Established Peers (Default VRF) for leaf devices",
+                    "position": {
+                        "x": 0,
+                        "y": 9
+                    },
+                    "dimensions": {
+                        "width": 6,
+                        "height": 8
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "BGP_ESTABLISHED_PEER_COUNT_DEFAULT_VRF"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "bgp:enabled Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "138ab11d-2cfa-4007-acf2-e7f87c8e2699",
+                    "name": "BGP Established Peers (Default VRF) for spine devices",
+                    "position": {
+                        "x": 6,
+                        "y": 9
+                    },
+                    "dimensions": {
+                        "width": 6,
+                        "height": 8
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "BGP_ESTABLISHED_PEER_COUNT_DEFAULT_VRF"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "bgp:enabled Container:ATD_SPINES "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "41d59c0e-42d1-44d7-97b2-77d3922a39b7",
+                    "name": "IPv4 BGP Learned Routes (All VRFs) for leaf devices",
+                    "position": {
+                        "x": 0,
+                        "y": 17
+                    },
+                    "dimensions": {
+                        "width": 6,
+                        "height": 8
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "BGP_V4_BGP_LEARNED_ROUTES"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "83acac51-792e-4f38-b680-9a8d6ad6b81d",
+                    "name": "MLAG Status",
+                    "position": {
+                        "x": 12,
+                        "y": 0
+                    },
+                    "dimensions": {
+                        "width": 12,
+                        "height": 9
+                    },
+                    "type": "metrics-widget-table",
+                    "inputs": {
+                        "defaultSort": {
+                            "order": 2,
+                            "key": "LAG_MLAG_PEER_LINK_STATUS"
+                        },
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "LAG_MLAG_HARDWARE_STATUS",
+                            "LAG_MLAG_STATUS",
+                            "LAG_MLAG_NEGOTIATION_STATUS",
+                            "LAG_MLAG_PEER_LINK_STATUS"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "893a7ede-e1b7-4e71-a87d-89135754560d",
+                    "name": "Mac Address Learning",
+                    "position": {
+                        "x": 12,
+                        "y": 9
+                    },
+                    "dimensions": {
+                        "width": 12,
+                        "height": 8
+                    },
+                    "type": "metrics-widget-table",
+                    "inputs": {
+                        "defaultSort": {
+                            "order": 1
+                        },
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "MAC_TABLE_SIZE",
+                            "VLANS_TOTAL_CONFIGURED_COUNT",
+                            "VXLAN_REMOTE_MACS_COUNT",
+                            "VXLAN_VNIS_COUNT"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "347e9b82-f618-467d-94a1-ee782cd26311",
+                    "name": "Remote MACs learning",
+                    "position": {
+                        "x": 6,
+                        "y": 17
+                    },
+                    "dimensions": {
+                        "width": 6,
+                        "height": 8
+                    },
+                    "type": "metrics-widget",
+                    "inputs": {
+                        "viewType": "metric",
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "VXLAN_REMOTE_MACS_COUNT"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "Container:ATD_LEAFS "
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "91646aa3-98c4-4240-9d60-ff01e95c2eee",
+                    "name": "",
+                    "position": {
+                        "x": 12,
+                        "y": 17
+                    },
+                    "dimensions": {
+                        "width": 12,
+                        "height": 8
+                    },
+                    "type": "metrics-widget-aggregate",
+                    "inputs": {
+                        "components": [],
+                        "isTokenSearchEnabled": true,
+                        "metricKeys": [
+                            "DEVICE_EOS_VERSION"
+                        ],
+                        "metricSource": "devices",
+                        "selectedCustomTags": [],
+                        "tags": "eos:* ",
+                        "limits": {},
+                        "viewType": "metric"
+                    },
+                    "location": "main"
+                },
+                {
+                    "id": "b9bbfc5a-5022-43ed-a200-7eebba88b9af",
+                    "name": "",
+                    "position": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "dimensions": {
+                        "width": 12,
+                        "height": 9
+                    },
+                    "type": "topology-widget",
+                    "inputs": {
+                        "overlay": "utilization",
+                        "selectedCustomTags": [],
+                        "showActiveEvents": true,
+                        "showContainerTypes": false,
+                        "showLegend": true,
+                        "showManagement": false,
+                        "showVxlanTunnels": false,
+                        "tags": "Container:ATD_LAB ",
+                        "useDeviceImages": true
+                    },
+                    "location": "main"
+                }
+            ],
+            "lastUpdated": 1673262234464,
+            "lastUpdatedBy": "tom"
+        }
+    ]
+}
