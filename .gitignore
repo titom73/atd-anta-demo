@@ -87,3 +87,4 @@ tags
 [._]*.un~
 
 *.retry
+containerlab-topology/clab-atd-anta/

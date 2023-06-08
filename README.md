@@ -1,10 +1,20 @@
 # Arista ATD Emulation on Containerlab
 
+__Work in Progress__ Stay tuned !
+
+This repository is built to support demo about how to use [Arista Network Automation](https://www.anta.ninja) framework.
+
+Repository is based on [containerlab](https://containerlab.dev/) for lab management, [eos-download](https://github.com/titom73/eos-downloader) for cEOS image management and [Arista AVD](https://avd.arista.com) for configuration management.
+
 ## Topology
 
-![](diagram.png)
+![atd-lab-topology](diagram.png)
 
-> CVP is not part of this lab
+## Documentation
+
+- [Installation](./docs/installation.md)
+- [Configuration management](docs/avd-provisioning.md)
+- [Step by Step demo](docs/demo.md)
 
 ### Deploy lab
 
@@ -24,9 +34,7 @@ $ sudo containerlab destroy --topo topology.yml
 
 ## Authentication
 
-- Username: __admin__ (password: _none_)
 - Username: __ansible__ (password: `ansible`)
-- Username: __cvpadmin__ (password: `ansible`)
 - Username: __arista__ (password: `arista`)
 
 ## Management IPs
@@ -46,8 +54,4 @@ $ sudo containerlab destroy --topo topology.yml
 
 Devices configuration are saved under [containerlab-topology/configs](containerlab-topology/configs) folder
 
-## Doc
 
-- [Installation](./docs/installation.md)
-- [Configuration management](docs/avd-provisioning.md)
-- [Step by Step demo](docs/demo.md)
