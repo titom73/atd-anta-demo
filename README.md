@@ -10,27 +10,43 @@ Repository is based on [containerlab](https://containerlab.dev/) for lab managem
 
 ![atd-lab-topology](diagram.png)
 
-## Documentation
+## Network Ready for Use
 
-- [Installation](./docs/installation.md)
-- [Configuration management](docs/avd-provisioning.md)
-- [Step by Step demo](docs/demo.md)
-
-### Deploy lab
+* download cEOS in version 4.28.3M
 
 ```bash
-$ cd containerlab-topology
-
-$ sudo containerlab deploy --topo topology.yml
+ardl get eos --version 4.28.3M --image-type cEOS --import-docker
 ```
 
-### Destroy lab
+* Start initial topology
 
 ```bash
-$ cd containerlab-topology
-
-$ sudo containerlab destroy --topo topology.yml
+cd containerlab-topology
+sudo containerlab deploy --topo topology.yml --reconfigure
+cd ..
 ```
+
+* Review ANTA parameters available in [`anta.env`](../anta.env)
+
+```bash
+cat anta.env
+```
+
+* Load anta parameters
+
+```bash
+source anta.env
+```
+
+* Run anta testing
+
+```bash
+anta nrfu table --catalog network-tests/nrfu.yml
+```
+
+> Analyzed first results.
+
+__Continue with this [step-by-step document](./docs/demo.md)__
 
 ## Authentication
 
@@ -54,4 +70,9 @@ $ sudo containerlab destroy --topo topology.yml
 
 Devices configuration are saved under [containerlab-topology/configs](containerlab-topology/configs) folder
 
+## More documentation
+
+- [Installation](./docs/installation.md)
+- [Configuration management](docs/avd-provisioning.md)
+- [Step by Step demo](docs/demo.md)
 

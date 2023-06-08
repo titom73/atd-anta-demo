@@ -15,12 +15,24 @@ ardl get eos --version 4.28.3M --image-type cEOS --import-docker
 ```bash
 cd containerlab-topology
 sudo containerlab deploy --topo topology.yml --reconfigure
+cd ..
+```
+
+* Review ANTA parameters available in [`anta.env`](../anta.env)
+
+```bash
+cat anta.env
+```
+
+* Load anta parameters
+
+```bash
+source anta.env
 ```
 
 * Run anta testing
 
 ```bash
-source anta.env
 anta nrfu table --catalog network-tests/nrfu.yml
 ```
 
@@ -54,6 +66,11 @@ anta nrfu table --catalog network-tests/nrfu.yml --tags leaf
 
 > Result should be completely green. NTP association can takes few seconds/minutes to happen
 
+## Get data for a specific command
+
+```bash
+anta debug run-cmd -c "show lldp neighbors" --device spine01
+```
 
 ## Collect Data from network
 
@@ -68,3 +85,4 @@ vim network-tests/snapshot.yml
 ```bash
 anta exec snapshot -c network-tests/snapshot.yml
 ```
+
