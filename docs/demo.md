@@ -33,38 +33,28 @@ source anta.env
 * Run anta testing
 
 ```bash
-anta nrfu table --catalog network-tests/nrfu.yml
+anta nrfu --catalog network-tests/nrfu.yml table
 ```
 
 > Analyzed first results.
+
+* Update NRFU tests to with
+    * Under test `VerifyBGPIPv4UnicastCount:` update `number: 4`
+    * Under test `VerifyLoopbackCount:` update `number: 1`
+
+* Run anta testing
+
+```bash
+anta nrfu --catalog network-tests/nrfu.yml table
+```
 
 ## Focusing on Leaf devices
 
 * Run testing only on leaf devices
 
 ```bash
-anta nrfu table --catalog network-tests/nrfu.yml --tags leaf
+anta nrfu --catalog network-tests/nrfu.yml table --tags leaf
 ```
-
-* Generate AVD EVPN/VXLAN configuration
-
-```bash
-ansible-playbook playbooks/atd-fabric-deploy.yml --tags build
-```
-
-* Deploy configuration
-
-```bash
-ansible-playbook playbooks/atd-fabric-deploy.yml --tags deploy_eapi
-```
-
-* Run test again
-
-```bash
-anta nrfu table --catalog network-tests/nrfu.yml --tags leaf
-```
-
-> Result should be completely green. NTP association can takes few seconds/minutes to happen
 
 ## Get data for a specific command
 
