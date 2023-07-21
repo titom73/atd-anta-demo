@@ -10,14 +10,14 @@ anta.tests.software:
 
 anta.tests.routing.bgp:
   - VerifyBGPIPv4UnicastCount:
-      number: 4
+      number: 1
       template_params:
         - vrf: default
 
 anta.tests.interfaces:
   - VerifyInterfaceUtilization:
   - VerifyLoopbackCount:
-      number: 1
+      number: 3
 
 anta.tests.system:
   - VerifyReloadCause:
