@@ -16,6 +16,6 @@ anta_inventory:
     - host: 192.168.0.14
       name: leaf03
       tags: ['leaf']
-    - host: 192.168.0.115
-      name: leaf04
-      tags: ['leaf']
+    # - host: 192.168.0.115
+    #   name: leaf04
+    #   tags: ['leaf']
