@@ -1,16 +1,14 @@
-# Arista ATD Emulation on Containerlab
+# Arista Network Testing Automation (ANTA) demo
 
-__Work in Progress__ Stay tuned !
-
-This repository is built to support demo about how to use [Arista Network Automation](https://www.anta.ninja) framework.
+This repository is built to support demo about how to use [Arista Network Testin Automation](https://www.anta.ninja) framework.
 
 Repository is based on [containerlab](https://containerlab.dev/) for lab management, [eos-download](https://github.com/titom73/eos-downloader) for cEOS image management and [Arista AVD](https://avd.arista.com) for configuration management.
 
-## Topology
+## Containerlab Topology
 
 ![atd-lab-topology](diagram.png)
 
-## Network Ready for Use
+## Getting Started
 
 > [!IMPORTANT]
 > Complete [Step by Step demo](docs/demo.md) is available but next commands are a quick-start
@@ -47,7 +45,7 @@ source anta.env
 anta nrfu --catalog network-tests/nrfu.yml table 
 ```
 
-> Analyzed first results.
+* Analyzed first results.
 
 __Continue with this [step-by-step document](./docs/demo.md)__
 
