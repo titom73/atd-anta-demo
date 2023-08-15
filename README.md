@@ -29,7 +29,7 @@ sudo containerlab deploy --topo topology.yml --reconfigure
 cd ..
 ```
 
-* Review ANTA parameters available in [`anta.env`](../anta.env)
+* Review ANTA parameters available in [`anta.env`](anta.env)
 
 ```bash
 cat anta.env
