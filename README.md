@@ -12,10 +12,13 @@ Repository is based on [containerlab](https://containerlab.dev/) for lab managem
 
 ## Network Ready for Use
 
+> [!IMPORTANT]
+> Complete [Step by Step demo](docs/demo.md) is available but next commands are a quick-start
+
 * download cEOS in version 4.28.3M
 
 ```bash
-ardl get eos --version 4.28.3M --image-type cEOS --import-docker
+ardl --token <arista.com token> get eos --version 4.28.3M --image-type cEOS --import-docker
 ```
 
 * Start initial topology
@@ -26,7 +29,7 @@ sudo containerlab deploy --topo topology.yml --reconfigure
 cd ..
 ```
 
-* Review ANTA parameters available in [`anta.env`](../anta.env)
+* Review ANTA parameters available in [`anta.env`](./anta.env)
 
 ```bash
 cat anta.env
@@ -41,7 +44,7 @@ source anta.env
 * Run anta testing
 
 ```bash
-anta nrfu table --catalog network-tests/nrfu.yml
+anta nrfu --catalog network-tests/nrfu.yml table 
 ```
 
 > Analyzed first results.
