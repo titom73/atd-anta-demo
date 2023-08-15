@@ -7,7 +7,7 @@
 * download cEOS in version 4.28.3M
 
 ```bash
-ardl get eos --version 4.28.3M --image-type cEOS --import-docker
+ardl --token <arista.com token> get eos --version 4.28.3M --image-type cEOS --import-docker
 ```
 
 * Start initial topology
