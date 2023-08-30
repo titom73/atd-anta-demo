@@ -36,8 +36,3 @@ Repository is based on [containerlab](https://containerlab.dev/) for lab managem
 ## Startup configuration
 
 Devices configuration are saved under [containerlab-topology/configs](containerlab-topology/configs) folder
-
-## More documentation
-
--
-
