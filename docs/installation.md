@@ -39,16 +39,18 @@ docker run --rm -it --privileged \
 > [!NOTE]
 > Full installation notes on [containerlab website](https://containerlab.dev/install/)
 
-## Ansible
+## Python
 
-If you want to update EOS configuration, it is recommended to use [Ansible AVD collection](https://avd.arista.com)
+> **info**
+> It is recommended to install everything in a Python virtual environment.
+
+It installs the following packages:
+
+- eos-downloader: to download cEOS image to build topology
+- anta: Base engine for network testing
+- anta-custom: local package provided by this repository to build your first ANTA tests.
 
 ```bash
-# Ansible collection
-ansible-galaxy collection install -r collections.yml
-
-# AVD Python requirements
-export ARISTA_AVD_DIR=$(ansible-galaxy collection list arista.avd --format yaml
-| head -1 | cut -d: -f1) && pip3 install -r
-${ARISTA_AVD_DIR}/arista/avd/requirements.txt
+# Python base
+pip install -e .
 ```

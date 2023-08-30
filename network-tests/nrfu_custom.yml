@@ -1,0 +1,3 @@
+anta_custom.dummy:
+  - VerifyUptime:
+      minimum: 1

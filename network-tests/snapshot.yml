@@ -1,5 +1,5 @@
-json_format:
-  - show version
+#json_format:
+#  - show version
 text_format:
   - show lldp neighbors
   - show ip interface brief

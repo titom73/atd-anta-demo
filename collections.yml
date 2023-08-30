@@ -1,6 +1,0 @@
-collections:
-  - arista.avd
-  - arista.eos
-  - ansible.netcommon
-  - ansible.posix
-  - community.general
