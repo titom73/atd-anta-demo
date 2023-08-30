@@ -88,3 +88,4 @@ tags
 
 *.retry
 containerlab-topology/clab-atd-anta/
+.python-version
