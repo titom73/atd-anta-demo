@@ -1,9 +1,0 @@
-README.md
-pyproject.toml
-anta_custom/__init__.py
-anta_custom/dummy.py
-anta_custom.egg-info/PKG-INFO
-anta_custom.egg-info/SOURCES.txt
-anta_custom.egg-info/dependency_links.txt
-anta_custom.egg-info/requires.txt
-anta_custom.egg-info/top_level.txt
