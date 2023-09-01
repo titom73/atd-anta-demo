@@ -1,13 +1,19 @@
 # Lab Installation
 
-## Python libs
+## Python
 
-> [!IMPORTANT]
+> **info**
 > It is recommended to install everything in a Python virtual environment.
+
+It installs the following packages:
+
+- eos-downloader: to download cEOS image to build topology
+- anta: Base engine for network testing
+- anta-custom: local package provided by this repository to build your first ANTA tests.
 
 ```bash
 # Python base
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ## Containerlab
@@ -39,18 +45,3 @@ docker run --rm -it --privileged \
 > [!NOTE]
 > Full installation notes on [containerlab website](https://containerlab.dev/install/)
 
-## Python
-
-> **info**
-> It is recommended to install everything in a Python virtual environment.
-
-It installs the following packages:
-
-- eos-downloader: to download cEOS image to build topology
-- anta: Base engine for network testing
-- anta-custom: local package provided by this repository to build your first ANTA tests.
-
-```bash
-# Python base
-pip install -e .
-```
