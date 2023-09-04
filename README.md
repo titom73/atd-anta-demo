@@ -8,7 +8,7 @@ Repository is based on [containerlab](https://containerlab.dev/) for lab managem
 
 ## Available demo
 
-> **info**
+> **Info**
 > Please follow [installation process](./docs/installation.md) first !
 
 - [Base demo](docs/demo-base.md): Demonstrate [ANTA](www.anta.ninja) capabilities using cEOS as network endpoints
