@@ -15,6 +15,8 @@ It installs the following packages:
 # Python base
 pip install -e .
 ```
+> **Note**
+> If you are running this demo into ATD, then you are good to go with [the demos](https://github.com/titom73/atd-anta-demo?tab=readme-ov-file#available-demo)
 
 ## Containerlab
 
