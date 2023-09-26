@@ -9,10 +9,15 @@ anta.tests.software:
         - '4.28.3M-28837868.4283M (engineering build)'
 
 anta.tests.routing.bgp:
+  - VerifyBGPPeersHealth:
+      address_families:
+        - afi: "evpn"
+        - afi: "ipv4"
+          safi: "unicast"
+          vrf: "default"
   - VerifyBGPIPv4UnicastCount:
-      number: 1
-      template_params:
-        - vrf: default
+      vrfs: 
+        default: 2
 
 anta.tests.interfaces:
   - VerifyInterfaceUtilization:

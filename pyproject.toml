@@ -14,7 +14,7 @@ maintainers = [
 description = "A custom lib of ANTA tests"
 license = { file = "LICENSE" }
 dependencies = [
-  "anta>=0.7.0",
+  "anta>=0.8.0",
   "eos-downloader==0.8.2"
 ]
 keywords = ["test", "anta", "Arista", "network", "automation", "networking", "devops", "netdevops"]
