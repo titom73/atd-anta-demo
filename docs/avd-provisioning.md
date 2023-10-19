@@ -1,6 +1,19 @@
 # Configure EOS for testing
 
+## Requirements
+
+```bash
+pip install ansible
+ansible-galaxy collection install -f arista.avd
+```
+
 ## Configuration Management
+
+### Location
+
+```bash
+cd atd-inventory/
+```
 
 ### Inventory
 
@@ -9,20 +22,8 @@
 
 ### Commands
 
-- Build and deploy
-
-```bash
-ansible-playbook playbooks/atd-fabric-deploy.yml
-```
-
 - Build only
 
 ```bash
 ansible-playbook playbooks/atd-fabric-deploy.yml --tags build
-```
-
-- Build & deploy via eAPI
-
-```bash
-ansible-playbook playbooks/atd-fabric-deploy.yml --tags deploy_eapi
 ```
