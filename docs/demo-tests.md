@@ -98,8 +98,14 @@ If your test has some user inputs, you first have to validate the supplied value
 ```python
 class VerifyUptime(AntaTest):
     ...
+    class Input(AntaTest.Input):
+        minimum: int
+    ...
     @AntaTest.anta_test
-    def test(self, minimum: Optional[int] = None) -> None:
+    def test(self) -> None:
+        # Get your input
+        minimum = self.inputs.minimum
+
         # Check if test option is correct
         if not (isinstance(minimum, (int, float))) or minimum < 0:
             self.result.is_skipped(
@@ -119,15 +125,21 @@ In the example below, we request the list of vlans configured on device and then
 ```python
 class VerifyUptime(AntaTest):
     ...
+    class Input(AntaTest.Input):
+        minimum: int
+    ...
     @AntaTest.anta_test
-    def test(self, minimum: Optional[int] = None) -> None:
+    def test(self) -> None:
         """
         Run VerifyUptime validation
 
         Args:
             minimum: Minimum uptime in seconds.
         """
+        # Get your input
+        minimum = self.inputs.minimum
 
+        # Retrieve command output
         command_output = self.instance_commands[0].json_output
 
         if not (isinstance(minimum, (int, float))) or minimum < 0:
